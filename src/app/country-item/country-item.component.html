@@ -1,0 +1,26 @@
+<div class="main-holder flex flex-col justify-center items-center
+    font-nunito shadow-md pb-5 max-w-xs h-full"
+    [class.bg-DarkBlue]="themeService.isDarkTheme"
+    [class.bg-White]="!themeService.isDarkTheme">
+    <img class="aspect-[16/10] w-full content-stretch" [src]="country.flag" alt="">
+    <div class="p-5 flex flex-col flex-wrap w-full h-full">
+        
+        <p class="mb-4 font-semibold text-xl"
+        [ngClass]="{'text-White' : themeService.isDarkTheme, 'text-VeryDarkBlueL' : !themeService.isDarkTheme}">
+            {{country.name}}
+        </p>
+        <p class="font-semibold"
+        [ngClass]="{'text-White' : themeService.isDarkTheme, 'text-VeryDarkBlueL' : !themeService.isDarkTheme}">
+            population: <span class="font-light">{{country.population}}</span>
+        </p>
+        <p class="font-semibold"
+        [ngClass]="{'text-White' : themeService.isDarkTheme, 'text-VeryDarkBlueL' : !themeService.isDarkTheme}">
+            Region: <span class="font-light">{{country.region}}</span>
+        </p>
+        <p class="font-semibold"
+        [ngClass]="{'text-White' : themeService.isDarkTheme, 'text-VeryDarkBlueL' : !themeService.isDarkTheme}">
+            Capital: <span class="font-light">{{country.capital}}</span>
+        </p>
+    </div>
+    
+</div>

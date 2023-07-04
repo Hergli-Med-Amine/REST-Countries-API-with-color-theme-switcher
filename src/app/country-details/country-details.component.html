@@ -1,0 +1,107 @@
+
+<div class="country-detail-main min-h-screen w-full p-20 flex flex-col justify-start items-start"
+    [class.bg-VeryDarkBlueD]="themeService.isDarkTheme"
+    [class.bg-VeryLightGray]="!themeService.isDarkTheme">
+    <div class="back-btn w-max p-3 pl-10 pr-12 shadow-md rounded-sm 
+        flex flex-row items-center justify-center mb-10 overflow-hidden
+        gap-2"
+        [class.bg-DarkBlue]="themeService.isDarkTheme"
+        [class.bg-White]="!themeService.isDarkTheme"
+        (click)="goToCountriesHome()">
+
+        <i class="fa-solid fa-arrow-left"
+        [class.text-White]="themeService.isDarkTheme"
+        [class.text-VeryDarkBlueL]="themeService.isDarkTheme"></i>
+        <button
+            [class.bg-DarkBlue]="themeService.isDarkTheme"
+            [class.bg-White]="!themeService.isDarkTheme" 
+            [class.text-White]="themeService.isDarkTheme"
+            [class.text-VeryDarkBlueL]="themeService.isDarkTheme"
+            class="h-full bg-transparent">
+            Back
+        </button> 
+    </div>
+    <div class="details w-full flex flex-row justify-evenly
+    items-center gap-20">
+        <div class="left-container w-[45%] h-full">
+            <img [src]="country?.flag" alt=""
+            class="aspect-[16/10]">
+        </div>
+        <div class="right-container w-1/2">
+            <h1 [class.text-White]="themeService.isDarkTheme"
+                [class.text-VeryDarkBlueL]="themeService.isDarkTheme"
+                class="text-2xl font-extrabold mb-10">
+                {{country?.name}}
+            </h1>
+            <div class="upper-half flex flex-row gap-16 mb-14">
+                <div class="upper-left">
+                    <p [class.text-White]="themeService.isDarkTheme"
+                [class.text-VeryDarkBlueL]="themeService.isDarkTheme">
+                    Native Name: <span class="font-light">{{country?.nativename}}</span>
+                </p>
+                <p [class.text-White]="themeService.isDarkTheme"
+                [class.text-VeryDarkBlueL]="themeService.isDarkTheme">
+                    Population: <span class="font-light">{{country?.population}}</span>
+                </p>
+                <p [class.text-White]="themeService.isDarkTheme"
+                [class.text-VeryDarkBlueL]="themeService.isDarkTheme">
+                    Region: <span class="font-light">{{country?.region}}</span>
+                </p>
+                <p [class.text-White]="themeService.isDarkTheme"
+                [class.text-VeryDarkBlueL]="themeService.isDarkTheme">
+                    Sub Region: <span class="font-light">{{country?.subregion}}</span>
+                </p>
+                <p [class.text-White]="themeService.isDarkTheme"
+                [class.text-VeryDarkBlueL]="themeService.isDarkTheme">
+                    Capital: <span class="font-light">{{country?.capital}}</span>
+                </p>
+                </div>
+                <div class="upper-right">
+                    <p [class.text-White]="themeService.isDarkTheme"
+                    [class.text-VeryDarkBlueL]="themeService.isDarkTheme">
+                        Top Level Domain: <span class="font-light">{{country?.domain}}</span>
+                    </p>
+                    <p [class.text-White]="themeService.isDarkTheme"
+                    [class.text-VeryDarkBlueL]="themeService.isDarkTheme">
+                        Currencies: <span class="font-light"> {{country?.currencies}} </span>
+                    </p>
+                    <p [class.text-White]="themeService.isDarkTheme"
+                    [class.text-VeryDarkBlueL]="themeService.isDarkTheme">
+                        Languages: <span class="font-light">{{country?.languages}}</span>
+                    </p>
+                </div>
+                
+            </div>
+            <div class="lower-half flex flex-row justify-start items-start gap-2 w-full">
+
+                <p [class.text-White]="themeService.isDarkTheme"
+                [class.text-VeryDarkBlueL]="themeService.isDarkTheme">
+                    Border Countries:
+                </p>
+                <div *ngIf="country?.border" class="grid grid-cols-4 gap-2">
+
+                    <div *ngFor="let bdr of country?.border, let i=index">
+                        <div *ngIf="this.borders">
+                            <button (click)="fetchCountryDetails(bdr)"
+                                [class.bg-DarkBlue]="themeService.isDarkTheme"
+                                [class.bg-White]="!themeService.isDarkTheme" 
+                                [class.text-White]="themeService.isDarkTheme"
+                                [class.text-VeryDarkBlueL]="themeService.isDarkTheme"
+                                class="h-full w-full p-2 shadow-md rounded-sm">
+                                {{this.borders[i]}}
+                            </button>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    
+</div>
+
+
+
+
